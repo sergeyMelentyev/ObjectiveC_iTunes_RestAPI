@@ -20,7 +20,6 @@
 }
 
 -(void) loadData:(onComplete)completionHandler {
-    
     // CONFIGURE NSURLSESSION WITHOUT CASHE
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
