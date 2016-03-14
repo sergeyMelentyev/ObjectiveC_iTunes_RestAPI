@@ -9,6 +9,7 @@
 #import "APIManager.h"
 
 @implementation APIManager
+
 +(id) instance {
     static APIManager *sharedInstance = nil;
     @synchronized(self) {
@@ -18,9 +19,14 @@
     }
 }
 
--(void) loadData:(nullable onComplete)completionHandler {
-    NSURL *url = [NSURL URLWithString: [NSString stringWithFormat: @"https://itunes.apple.com/us/rss/topmusicvideos/limit=10/json"]];
-    NSURLSession *session = [NSURLSession sharedSession];
+-(void) loadData:(onComplete)completionHandler {
+    
+    // CONFIGURE NSURLSESSION WITHOUT CASHE
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
+    
+    NSString *iTunesAddress = @"https://itunes.apple.com/us/rss/topmusicvideos/limit=5/json";
+    NSURL *url = [NSURL URLWithString: iTunesAddress];
     [[session dataTaskWithURL:url completionHandler:^(NSData* data, NSURLResponse* response, NSError* error) {
         if (data != nil) {
             NSError *err;

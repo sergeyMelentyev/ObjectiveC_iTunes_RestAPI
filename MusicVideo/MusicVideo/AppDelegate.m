@@ -16,11 +16,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    // DISABLE NSURL CACHE
-    NSURLCache *URLCache = [[NSURLCache alloc] initWithMemoryCapacity:0 diskCapacity:0 diskPath:nil];
-    [NSURLCache setSharedURLCache: URLCache];
-    
     return YES;
 }
 

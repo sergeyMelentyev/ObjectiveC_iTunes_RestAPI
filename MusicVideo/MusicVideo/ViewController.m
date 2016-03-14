@@ -18,9 +18,14 @@
     [super viewDidLoad];
     [[APIManager instance] loadData:^(NSArray *dataArray, NSString *errMessage) {
         if (dataArray) {
-            NSLog(@"%@", dataArray);
+            
         } else if (errMessage) {
-            NSLog(@"NO INTERNET CONNECTION");
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Connection Error" message:@"No internet connection found" preferredStyle: UIAlertControllerStyleAlert];
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style: UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                // ANY LOGIC AFTER OK ALERT PRESSED
+            }];
+            [alert addAction:action];
+            [self presentViewController: alert animated:YES completion:nil];
         }
     }];
 }
