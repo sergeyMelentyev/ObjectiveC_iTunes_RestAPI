@@ -2,7 +2,7 @@
 //  ViewController.h
 //  MusicVideo
 //
-//  Created by Админ on 14.03.16.
+//  Created by Melentyev on 14.03.16.
 //  Copyright © 2016 Melentyev. All rights reserved.
 //
 
@@ -10,6 +10,4 @@
 
 @interface ViewController : UIViewController
 
-
 @end
-

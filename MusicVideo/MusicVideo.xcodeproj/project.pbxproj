@@ -101,14 +101,9 @@
 		800FC6371C96B19800621C6E /* MusicVideo */ = {
 			isa = PBXGroup;
 			children = (
-				800FC63B1C96B19800621C6E /* AppDelegate.h */,
-				800FC63C1C96B19800621C6E /* AppDelegate.m */,
-				800FC63E1C96B19800621C6E /* ViewController.h */,
-				800FC63F1C96B19800621C6E /* ViewController.m */,
-				800FC6411C96B19800621C6E /* Main.storyboard */,
-				800FC6441C96B19800621C6E /* Assets.xcassets */,
-				800FC6461C96B19800621C6E /* LaunchScreen.storyboard */,
-				800FC6491C96B19800621C6E /* Info.plist */,
+				800FC66D1C96B2B000621C6E /* Controller */,
+				800FC66C1C96B2A300621C6E /* View */,
+				800FC66B1C96B29E00621C6E /* Model */,
 				800FC6381C96B19800621C6E /* Supporting Files */,
 			);
 			path = MusicVideo;
@@ -117,6 +112,8 @@
 		800FC6381C96B19800621C6E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				800FC6441C96B19800621C6E /* Assets.xcassets */,
+				800FC6491C96B19800621C6E /* Info.plist */,
 				800FC6391C96B19800621C6E /* main.m */,
 			);
 			name = "Supporting Files";
@@ -138,6 +135,33 @@
 				800FC65F1C96B19900621C6E /* Info.plist */,
 			);
 			path = MusicVideoUITests;
+			sourceTree = "<group>";
+		};
+		800FC66B1C96B29E00621C6E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		800FC66C1C96B2A300621C6E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				800FC6411C96B19800621C6E /* Main.storyboard */,
+				800FC6461C96B19800621C6E /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		800FC66D1C96B2B000621C6E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				800FC63B1C96B19800621C6E /* AppDelegate.h */,
+				800FC63C1C96B19800621C6E /* AppDelegate.m */,
+				800FC63E1C96B19800621C6E /* ViewController.h */,
+				800FC63F1C96B19800621C6E /* ViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
