@@ -20,5 +20,6 @@
 @property (nonatomic, strong) NSString *vReleaseDate;
 @property (nonatomic, strong) NSString *vImageUrl;
 @property (nonatomic, strong) NSString *vVideoUrl;
+@property (nonatomic, strong) NSData *vImageData;
 
 @end

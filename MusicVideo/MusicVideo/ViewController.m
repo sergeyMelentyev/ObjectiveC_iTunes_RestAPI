@@ -29,42 +29,98 @@
                 MusicVideo *vid = [[MusicVideo alloc] init];
                 
                 NSDictionary *videoName = [d objectForKey:@"im:name"];
-                vid.vName = [videoName objectForKey:@"label"];
+                if (videoName) {
+                    vid.vName = [videoName objectForKey:@"label"];
+                } else {
+                    vid.vName = @"";
+                }
                 
                 NSDictionary *videoRights = [d objectForKey:@"rights"];
-                vid.vRights = [videoRights objectForKey:@"label"];
+                if (videoRights) {
+                    vid.vRights = [videoRights objectForKey:@"label"];
+                } else {
+                    vid.vRights = @"";
+                }
                 
                 NSDictionary *videoPrice = [d objectForKey:@"im:price"];
-                vid.vPrice = [videoPrice objectForKey:@"label"];
+                if (videoPrice) {
+                    vid.vPrice = [videoPrice objectForKey:@"label"];
+                } else {
+                    vid.vPrice = @"";
+                }
                 
                 NSDictionary *videoArtist = [d objectForKey:@"im:artist"];
-                vid.vArtist = [videoArtist objectForKey:@"label"];
+                if (videoArtist) {
+                    vid.vArtist = [videoArtist objectForKey:@"label"];
+                } else {
+                    vid.vArtist = @"";
+                }
                 
                 NSDictionary *videoImIdOne = [d objectForKey:@"id"];
-                NSDictionary *videoImIdTwo = [videoImIdOne objectForKey:@"attributes"];
-                vid.vImId = [videoImIdTwo objectForKey:@"im:id"];
+                if (videoImIdOne) {
+                    NSDictionary *videoImIdTwo = [videoImIdOne objectForKey:@"attributes"];
+                    if (videoImIdTwo) {
+                        vid.vImId = [videoImIdTwo objectForKey:@"im:id"];
+                    }
+                } else {
+                    vid.vImId = @"";
+                }
                 
                 NSDictionary *videoGenreOne = [d objectForKey:@"category"];
-                NSDictionary *videoGenreTwo = [videoGenreOne objectForKey:@"attributes"];
-                vid.vGenre = [videoGenreTwo objectForKey:@"label"];
+                if (videoGenreOne) {
+                    NSDictionary *videoGenreTwo = [videoGenreOne objectForKey:@"attributes"];
+                    if (videoGenreTwo) {
+                        vid.vGenre = [videoGenreTwo objectForKey:@"label"];
+                    }
+                } else {
+                    vid.vGenre = @"";
+                }
                 
                 NSArray *videoLinkArr = [d objectForKey:@"link"];
-                NSDictionary *videoLinkDictOne = videoLinkArr[0];
-                NSDictionary *videoLinkDictTwo = [videoLinkDictOne objectForKey:@"attributes"];
-                vid.vLinkToItunes = [videoLinkDictTwo objectForKey:@"href"];
+                if (videoLinkArr) {
+                    NSDictionary *videoLinkDictOne = videoLinkArr[0];
+                    if (videoLinkDictOne) {
+                        NSDictionary *videoLinkDictTwo = [videoLinkDictOne objectForKey:@"attributes"];
+                        if (videoLinkDictTwo) {
+                            vid.vLinkToItunes = [videoLinkDictTwo objectForKey:@"href"];
+                        }
+                    }
+                } else {
+                    vid.vLinkToItunes = @"";
+                }
                 
                 NSDictionary *videoRelease = [d objectForKey:@"im:releaseDate"];
-                vid.vReleaseDate = [videoRelease objectForKey:@"label"];
+                if (videoRelease) {
+                    vid.vReleaseDate = [videoRelease objectForKey:@"label"];
+                } else {
+                    vid.vReleaseDate = @"";
+                }
                 
                 NSArray *videoImageArr = [d objectForKey:@"im:image"];
-                NSDictionary *videoImageDict = videoImageArr[2];
-                NSString *videoImageSize = [[videoImageDict objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"100x100" withString:@"600x600"];
-                vid.vImageUrl = videoImageSize;
+                if (videoImageArr) {
+                    NSDictionary *videoImageDict = videoImageArr[2];
+                    if (videoImageDict) {
+                        NSString *videoImageSize = [[videoImageDict objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"100x100" withString:@"600x600"];
+                        if (videoImageSize) {
+                            vid.vImageUrl = videoImageSize;
+                        }
+                    }
+                } else {
+                    vid.vImageUrl = @"";
+                }
                 
                 NSArray *videoUrlArrOne = [d objectForKey:@"link"];
-                NSDictionary *videoUrlDictOne = videoUrlArrOne[1];
-                NSDictionary *videoUrlDictTwo = [videoUrlDictOne objectForKey:@"attributes"];
-                vid.vVideoUrl = [videoUrlDictTwo objectForKey:@"href"];
+                if (videoUrlArrOne) {
+                    NSDictionary *videoUrlDictOne = videoUrlArrOne[1];
+                    if (videoUrlDictOne) {
+                        NSDictionary *videoUrlDictTwo = [videoUrlDictOne objectForKey:@"attributes"];
+                        if (videoUrlDictTwo) {
+                            vid.vVideoUrl = [videoUrlDictTwo objectForKey:@"href"];
+                        }
+                    }
+                } else {
+                    vid.vVideoUrl = @"";
+                }
                 
                 [arrOfVideosForTableView addObject:vid];
             }
