@@ -1,9 +1,6 @@
-# ObjectiveC_iTunes_RestAPI
-[Objective]-C, Grand Central Dispatch, iTunes Rest API, NSGSONSerialization, Reachability.framework
-Кратко.
 Пользователь выбирает желаемое колличество видеороликов, входящих в ТОП на iTunes и просматривает.
+[Objective]-C, Grand Central Dispatch, iTunes Rest API, NSGSONSerialization, Reachability.framework
 
-Подробно.
 Мобильное приложение проверяет доступные варианты связи (Wifi, Cell, NoConnection) и в соответсвии с этим делает запрос на сервер iTunes (к примеру с Wifi можно загрузить изображения большего размера).
 Ответ приходит в форомате JSON, далее NSGSONSerialization переходит на BackThread c наивысшим приоритетом и конвертирует данные в NSDictionary.
 По окончанию процесса создается нужное колличество объектов по заданному образу класса.
