@@ -19,6 +19,7 @@
     [super viewDidLoad];
     self.videoList = [[NSArray alloc] init];
     
+    // PARSER FROM ITUNES API JSON TO NSARRAY
     [[APIManager instance] loadData:^(NSDictionary *dataDict, NSString *errMessage) {
         if (dataDict) {
             NSMutableArray *arrOfVideosForTableView = [[NSMutableArray alloc] init];
@@ -32,7 +33,8 @@
                 
                 NSArray *videoImageArr = [d objectForKey:@"im:image"];
                 NSDictionary *videoImageDict = videoImageArr[2];
-                vid.vImageUrl = [videoImageDict objectForKey:@"label"];
+                NSString *videoImageSize = [[videoImageDict objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"100x100" withString:@"600x600"];
+                vid.vImageUrl = videoImageSize;
                 
                 NSArray *videoUrlArrOne = [d objectForKey:@"link"];
                 NSDictionary *videoUrlDictOne = videoUrlArrOne[1];
@@ -51,13 +53,7 @@
             [self presentViewController: alert animated:YES completion:nil];
         }
     }];
-    
-    MusicVideo *testVideo = [[MusicVideo alloc] init];
-    testVideo.vName = @"Name";
-    
-    
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
