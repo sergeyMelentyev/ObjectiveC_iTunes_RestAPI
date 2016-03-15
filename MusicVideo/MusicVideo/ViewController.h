@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Reachability.h"
 
 @interface ViewController : UIViewController
-
+@property (strong, nonatomic) Reachability *reachability;
+@property (strong, nonatomic) Reachability *internetCheck;
+@property (strong, nonatomic) NSString *reachabilityStatus;
 @end

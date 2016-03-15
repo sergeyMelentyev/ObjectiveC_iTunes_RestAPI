@@ -11,6 +11,7 @@
 #import "MusicVideo.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *displayLabel;
 @property (nonatomic, strong) NSArray *videoList;
 @end
 
@@ -18,6 +19,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.videoList = [[NSArray alloc] init];
+    
+    // ADD NOTIFICATION EMITTER AND ALWAYS REMOVE THEM BEFORE APP WILL TERMINATE
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+    self.internetCheck = [Reachability reachabilityForInternetConnection];
+    [self.internetCheck startNotifier];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityStatusChanged) name:@"ReachStatusChanged" object:nil];
     
     // PARSER FROM ITUNES API JSON TO NSARRAY
     [[APIManager instance] loadData:^(NSDictionary *dataDict, NSString *errMessage) {
@@ -135,7 +143,39 @@
         }
     }];
 }
+- (void) reachabilityChanged:(NSNotification *)notification {
+    self.reachability = (Reachability *)notification.object;
+    [self statusChangedWithReachability:self.reachability];
+}
+- (void) statusChangedWithReachability:(Reachability *)currentReachabilityStatus {
+    NetworkStatus networkStatus = [currentReachabilityStatus currentReachabilityStatus];
+    switch (networkStatus) {
+        case NotReachable:
+            self.reachabilityStatus = @"NOACCESS";
+            break;
+        case ReachableViaWiFi:
+            self.reachabilityStatus = @"WIFI";
+            break;
+        case ReachableViaWWAN:
+            self.reachabilityStatus = @"WWAN";
+        default:
+            break;
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReachStatusChanged" object:nil];
+}
+- (void) reachabilityStatusChanged {
+    if ([self.reachabilityStatus isEqualToString:@"NOACCESS"]) {
+        self.displayLabel.text = @"NOACCESS";
+    } else if ([self.reachabilityStatus isEqualToString:@"WIFI"]) {
+        self.displayLabel.text = @"WIFI";
+    } else {
+        self.displayLabel.text = @"WWAN";
+    }
+}
 
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"ReachStatusChanged" object:nil];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
