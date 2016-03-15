@@ -24,6 +24,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
     self.internetCheck = [Reachability reachabilityForInternetConnection];
     [self.internetCheck startNotifier];
+    [self statusChangedWithReachability:self.internetCheck];
+    [self reachabilityStatusChanged];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityStatusChanged) name:@"ReachStatusChanged" object:nil];
     
@@ -134,12 +136,7 @@
             }
             self.videoList = arrOfVideosForTableView;
         } else if (errMessage) {
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Connection Error" message:@"No internet connection found" preferredStyle: UIAlertControllerStyleAlert];
-            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok" style: UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull okAction) {
-                // ANY LOGIC AFTER OK ALERT PRESSED
-            }];
-            [alert addAction:okAction];
-            [self presentViewController: alert animated:YES completion:nil];
+            // ANY ERRORS HERE
         }
     }];
 }
@@ -172,10 +169,10 @@
         self.displayLabel.text = @"WWAN";
     }
 }
-
 - (void) dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"ReachStatusChanged" object:nil];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
