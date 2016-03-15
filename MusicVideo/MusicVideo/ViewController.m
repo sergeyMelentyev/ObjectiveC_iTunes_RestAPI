@@ -31,6 +31,31 @@
                 NSDictionary *videoName = [d objectForKey:@"im:name"];
                 vid.vName = [videoName objectForKey:@"label"];
                 
+                NSDictionary *videoRights = [d objectForKey:@"rights"];
+                vid.vRights = [videoRights objectForKey:@"label"];
+                
+                NSDictionary *videoPrice = [d objectForKey:@"im:price"];
+                vid.vPrice = [videoPrice objectForKey:@"label"];
+                
+                NSDictionary *videoArtist = [d objectForKey:@"im:artist"];
+                vid.vArtist = [videoArtist objectForKey:@"label"];
+                
+                NSDictionary *videoImIdOne = [d objectForKey:@"id"];
+                NSDictionary *videoImIdTwo = [videoImIdOne objectForKey:@"attributes"];
+                vid.vImId = [videoImIdTwo objectForKey:@"im:id"];
+                
+                NSDictionary *videoGenreOne = [d objectForKey:@"category"];
+                NSDictionary *videoGenreTwo = [videoGenreOne objectForKey:@"attributes"];
+                vid.vGenre = [videoGenreTwo objectForKey:@"label"];
+                
+                NSArray *videoLinkArr = [d objectForKey:@"link"];
+                NSDictionary *videoLinkDictOne = videoLinkArr[0];
+                NSDictionary *videoLinkDictTwo = [videoLinkDictOne objectForKey:@"attributes"];
+                vid.vLinkToItunes = [videoLinkDictTwo objectForKey:@"href"];
+                
+                NSDictionary *videoRelease = [d objectForKey:@"im:releaseDate"];
+                vid.vReleaseDate = [videoRelease objectForKey:@"label"];
+                
                 NSArray *videoImageArr = [d objectForKey:@"im:image"];
                 NSDictionary *videoImageDict = videoImageArr[2];
                 NSString *videoImageSize = [[videoImageDict objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"100x100" withString:@"600x600"];
