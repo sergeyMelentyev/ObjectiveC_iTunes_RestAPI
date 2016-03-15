@@ -28,15 +28,21 @@
     NSURL *url = [NSURL URLWithString: iTunesAddress];
     [[session dataTaskWithURL:url completionHandler:^(NSData* data, NSURLResponse* response, NSError* error) {
         if (data != nil) {
-            NSError *err;
-            NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
-            if (err == nil) {
-                completionHandler(json, nil);
-            } else {
-                completionHandler(nil, @"DATA IS CORRUPTED");
-            }
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+                NSError *err;
+                NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (err == nil) {
+                        completionHandler(json, nil);
+                    } else {
+                        completionHandler(nil, @"DATA IS CORRUPTED");
+                    }
+                });
+            });
         } else {
-            completionHandler(nil, @"NO INTERNET CONNECTION");
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completionHandler(nil, @"NO INTERNET CONNECTION");
+            });
         }
         
     }] resume];

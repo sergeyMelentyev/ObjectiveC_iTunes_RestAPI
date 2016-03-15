@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-typedef void (^onComplete)(NSArray* dataArray, NSString* errMessage);
+typedef void (^onComplete)(NSDictionary* dataDict, NSString* errMessage);
 
 @interface APIManager : NSObject
 +(id) instance;

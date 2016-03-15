@@ -16,6 +16,7 @@
 		800FC6531C96B19900621C6E /* MusicVideoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 800FC6521C96B19900621C6E /* MusicVideoTests.m */; };
 		800FC65E1C96B19900621C6E /* MusicVideoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 800FC65D1C96B19900621C6E /* MusicVideoUITests.m */; };
 		800FC6711C96B73F00621C6E /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 800FC6701C96B73F00621C6E /* APIManager.m */; };
+		802F2A591C97054D0012EF0A /* MusicVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 802F2A581C97054D0012EF0A /* MusicVideo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		800FC65F1C96B19900621C6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		800FC66F1C96B73F00621C6E /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
 		800FC6701C96B73F00621C6E /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
+		802F2A571C97054D0012EF0A /* MusicVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicVideo.h; sourceTree = "<group>"; };
+		802F2A581C97054D0012EF0A /* MusicVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicVideo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +148,8 @@
 			children = (
 				800FC66F1C96B73F00621C6E /* APIManager.h */,
 				800FC6701C96B73F00621C6E /* APIManager.m */,
+				802F2A571C97054D0012EF0A /* MusicVideo.h */,
+				802F2A581C97054D0012EF0A /* MusicVideo.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -301,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				800FC6711C96B73F00621C6E /* APIManager.m in Sources */,
+				802F2A591C97054D0012EF0A /* MusicVideo.m in Sources */,
 				800FC6401C96B19800621C6E /* ViewController.m in Sources */,
 				800FC63D1C96B19800621C6E /* AppDelegate.m in Sources */,
 				800FC63A1C96B19800621C6E /* main.m in Sources */,
@@ -529,6 +535,7 @@
 				800FC6641C96B19900621C6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		800FC6651C96B19900621C6E /* Build configuration list for PBXNativeTarget "MusicVideoTests" */ = {
 			isa = XCConfigurationList;
@@ -537,6 +544,7 @@
 				800FC6671C96B19900621C6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		800FC6681C96B19900621C6E /* Build configuration list for PBXNativeTarget "MusicVideoUITests" */ = {
 			isa = XCConfigurationList;
@@ -545,6 +553,7 @@
 				800FC66A1C96B19900621C6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
