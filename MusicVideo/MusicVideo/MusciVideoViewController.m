@@ -1,25 +1,32 @@
 //
-//  ViewController.m
+//  MusciVideoViewController.m
 //  MusicVideo
 //
-//  Created by Melentyev on 14.03.16.
+//  Created by Админ on 16.03.16.
 //  Copyright © 2016 Melentyev. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MusicVideoViewController.h"
 #import "APIManager.h"
 #import "MusicVideo.h"
+#import "MusicVideoCell.h"
 
-@interface ViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *displayLabel;
+@interface MusicVideoViewController ()
 @property (nonatomic, strong) NSArray *videoList;
 @end
 
-@implementation ViewController
+@implementation MusicVideoViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.videoList = [[NSArray alloc] init];
-    
+}
+// CUSTOM FUNCTION FOR PUTTING TABLEVIEW BACK TO THE MAIN THREAD AND UPGRADE IT
+-(void) updateTableData {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
+}
+- (void) viewDidAppear:(BOOL)animated {
     // ADD NOTIFICATION EMITTER AND ALWAYS REMOVE THEM BEFORE APP WILL TERMINATE
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
     self.internetCheck = [Reachability reachabilityForInternetConnection];
@@ -28,8 +35,11 @@
     [self reachabilityStatusChanged];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityStatusChanged) name:@"ReachStatusChanged" object:nil];
-    
-    // PARSER FROM ITUNES API JSON TO NSARRAY
+    [self runAPI];
+}
+
+// PARSER FROM ITUNES API JSON TO NSARRAY
+- (void) runAPI {
     [[APIManager instance] loadData:^(NSDictionary *dataDict, NSString *errMessage) {
         if (dataDict) {
             NSMutableArray *arrOfVideosForTableView = [[NSMutableArray alloc] init];
@@ -110,7 +120,7 @@
                 if (videoImageArr) {
                     NSDictionary *videoImageDict = videoImageArr[2];
                     if (videoImageDict) {
-                        NSString *videoImageSize = [[videoImageDict objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"100x100" withString:@"600x600"];
+                        NSString *videoImageSize = [[videoImageDict objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"100x100" withString:@"100x100"];
                         if (videoImageSize) {
                             vid.vImageUrl = videoImageSize;
                         }
@@ -135,40 +145,74 @@
                 [arrOfVideosForTableView addObject:vid];
             }
             self.videoList = arrOfVideosForTableView;
+            [self updateTableData];
+            NSLog(@"GOOD %lu", (unsigned long)self.videoList.count);
         } else if (errMessage) {
-            // ANY ERRORS HERE
+            NSLog(@"ERROR %lu", (unsigned long)self.videoList.count);
         }
     }];
 }
+
 - (void) reachabilityChanged:(NSNotification *)notification {
     self.reachability = (Reachability *)notification.object;
     [self statusChangedWithReachability:self.reachability];
 }
+
 - (void) statusChangedWithReachability:(Reachability *)currentReachabilityStatus {
     NetworkStatus networkStatus = [currentReachabilityStatus currentReachabilityStatus];
-    switch (networkStatus) {
-        case NotReachable:
-            self.reachabilityStatus = @"NOACCESS";
-            break;
-        case ReachableViaWiFi:
-            self.reachabilityStatus = @"WIFI";
-            break;
-        case ReachableViaWWAN:
-            self.reachabilityStatus = @"WWAN";
-        default:
-            break;
+    if (networkStatus == NotReachable) {
+        self.reachabilityStatus = @"NOACCESS";
+    } else if (networkStatus == ReachableViaWiFi) {
+        self.reachabilityStatus = @"WIFI";
+    } else {
+        self.reachabilityStatus = @"WWAN";
     }
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ReachStatusChanged" object:nil];
 }
+
 - (void) reachabilityStatusChanged {
     if ([self.reachabilityStatus isEqualToString:@"NOACCESS"]) {
-        self.displayLabel.text = @"NOACCESS";
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"No Internet Access" message:@"Please make sure you are connected to the Internet" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
     } else if ([self.reachabilityStatus isEqualToString:@"WIFI"]) {
-        self.displayLabel.text = @"WIFI";
+        if (self.videoList.count == 0) {
+            [self runAPI];
+        }
     } else {
-        self.displayLabel.text = @"WWAN";
+        if (self.videoList.count == 0) {
+            [self runAPI];
+        }
     }
 }
+
+-(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    MusicVideoCell *cell = (MusicVideoCell*)[tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (!cell) {
+        cell = [[MusicVideoCell alloc] init];
+    }
+    return cell;
+}
+-(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    MusicVideo *video = [self.videoList objectAtIndex:indexPath.row];
+    MusicVideoCell *vidCell = (MusicVideoCell*)cell;
+    [vidCell updateUI:video];
+}
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // MusicVideo *video = [self.videoList objectAtIndex:indexPath.row];
+    // [self performSegueWithIdentifier:@"videoViewController" sender:video];
+}
+-(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+-(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.videoList.count;
+}
+
+
+
 - (void) dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"ReachStatusChanged" object:nil];
 }
@@ -176,5 +220,4 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
 @end

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		800FC63A1C96B19800621C6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 800FC6391C96B19800621C6E /* main.m */; };
 		800FC63D1C96B19800621C6E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 800FC63C1C96B19800621C6E /* AppDelegate.m */; };
-		800FC6401C96B19800621C6E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 800FC63F1C96B19800621C6E /* ViewController.m */; };
 		800FC6431C96B19800621C6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 800FC6411C96B19800621C6E /* Main.storyboard */; };
 		800FC6451C96B19800621C6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 800FC6441C96B19800621C6E /* Assets.xcassets */; };
 		800FC6481C96B19800621C6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 800FC6461C96B19800621C6E /* LaunchScreen.storyboard */; };
@@ -18,6 +17,8 @@
 		800FC6711C96B73F00621C6E /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 800FC6701C96B73F00621C6E /* APIManager.m */; };
 		802F2A591C97054D0012EF0A /* MusicVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 802F2A581C97054D0012EF0A /* MusicVideo.m */; };
 		802F2A5D1C9822C60012EF0A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 802F2A5C1C9822C60012EF0A /* Reachability.m */; };
+		804A8CE91C9998AE0063CCD0 /* MusciVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 804A8CE81C9998AE0063CCD0 /* MusciVideoViewController.m */; };
+		804A8CEC1C999B620063CCD0 /* MusicVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 804A8CEB1C999B620063CCD0 /* MusicVideoCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,8 +43,6 @@
 		800FC6391C96B19800621C6E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		800FC63B1C96B19800621C6E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		800FC63C1C96B19800621C6E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		800FC63E1C96B19800621C6E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		800FC63F1C96B19800621C6E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		800FC6421C96B19800621C6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		800FC6441C96B19800621C6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		800FC6471C96B19800621C6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,6 +59,10 @@
 		802F2A581C97054D0012EF0A /* MusicVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicVideo.m; sourceTree = "<group>"; };
 		802F2A5B1C9822C60012EF0A /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		802F2A5C1C9822C60012EF0A /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		804A8CE71C9998AE0063CCD0 /* MusicVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicVideoViewController.h; sourceTree = "<group>"; };
+		804A8CE81C9998AE0063CCD0 /* MusciVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusciVideoViewController.m; sourceTree = "<group>"; };
+		804A8CEA1C999B620063CCD0 /* MusicVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicVideoCell.h; sourceTree = "<group>"; };
+		804A8CEB1C999B620063CCD0 /* MusicVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicVideoCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +166,8 @@
 			children = (
 				800FC6411C96B19800621C6E /* Main.storyboard */,
 				800FC6461C96B19800621C6E /* LaunchScreen.storyboard */,
+				804A8CEA1C999B620063CCD0 /* MusicVideoCell.h */,
+				804A8CEB1C999B620063CCD0 /* MusicVideoCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -172,8 +177,8 @@
 			children = (
 				800FC63B1C96B19800621C6E /* AppDelegate.h */,
 				800FC63C1C96B19800621C6E /* AppDelegate.m */,
-				800FC63E1C96B19800621C6E /* ViewController.h */,
-				800FC63F1C96B19800621C6E /* ViewController.m */,
+				804A8CE71C9998AE0063CCD0 /* MusicVideoViewController.h */,
+				804A8CE81C9998AE0063CCD0 /* MusciVideoViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -320,10 +325,11 @@
 			files = (
 				800FC6711C96B73F00621C6E /* APIManager.m in Sources */,
 				802F2A591C97054D0012EF0A /* MusicVideo.m in Sources */,
-				800FC6401C96B19800621C6E /* ViewController.m in Sources */,
+				804A8CEC1C999B620063CCD0 /* MusicVideoCell.m in Sources */,
 				800FC63D1C96B19800621C6E /* AppDelegate.m in Sources */,
 				802F2A5D1C9822C60012EF0A /* Reachability.m in Sources */,
 				800FC63A1C96B19800621C6E /* main.m in Sources */,
+				804A8CE91C9998AE0063CCD0 /* MusciVideoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
