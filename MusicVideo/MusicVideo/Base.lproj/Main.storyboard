@@ -28,66 +28,78 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="loA-My-INh">
                                                     <rect key="frame" x="8" y="8" width="118" height="118"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="118" id="A2I-8i-Khg"/>
-                                                        <constraint firstAttribute="height" constant="118" id="hEL-TP-FdF"/>
+                                                        <constraint firstAttribute="width" constant="118" id="Kxn-7y-db7"/>
+                                                        <constraint firstAttribute="height" constant="118" id="xvN-nN-5GF"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number 1 in iTunes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="got-Hh-G24">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Nk-pT-Jy5">
                                                     <rect key="frame" x="134" y="8" width="442" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="iBJ-he-jaG"/>
+                                                        <constraint firstAttribute="height" constant="21" id="XAb-8o-7t2"/>
+                                                        <constraint firstAttribute="height" constant="21" id="ZNw-09-lTq"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="ZNw-09-lTq"/>
+                                                        </mask>
+                                                    </variation>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Nk-pT-Jy5">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#1 on iTunes today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="got-Hh-G24">
                                                     <rect key="frame" x="134" y="37" width="442" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="kq6-x8-jJe"/>
+                                                        <constraint firstAttribute="height" constant="21" id="bxF-rt-qn5"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fgu-XO-BSl">
                                                     <rect key="frame" x="134" y="66" width="442" height="60"/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.89802631580000003" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" red="0.33333333333333331" green="0.93725490196078431" blue="0.79607843137254897" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstItem="loA-My-INh" firstAttribute="top" secondItem="UzF-la-Ggm" secondAttribute="top" constant="8" id="0AG-DU-Y0X"/>
-                                                <constraint firstItem="Fgu-XO-BSl" firstAttribute="leading" secondItem="loA-My-INh" secondAttribute="trailing" constant="8" id="9pC-lf-PHc"/>
-                                                <constraint firstItem="got-Hh-G24" firstAttribute="leading" secondItem="loA-My-INh" secondAttribute="trailing" constant="8" id="EDj-lP-XeR"/>
-                                                <constraint firstItem="3Nk-pT-Jy5" firstAttribute="leading" secondItem="loA-My-INh" secondAttribute="trailing" constant="8" id="ENb-cr-L2I"/>
-                                                <constraint firstAttribute="bottom" secondItem="Fgu-XO-BSl" secondAttribute="bottom" constant="8" id="HrV-h6-wRU"/>
-                                                <constraint firstAttribute="trailing" secondItem="3Nk-pT-Jy5" secondAttribute="trailing" constant="8" id="LEx-Ez-x3w"/>
-                                                <constraint firstItem="got-Hh-G24" firstAttribute="top" secondItem="UzF-la-Ggm" secondAttribute="top" constant="8" id="PBG-8e-ySZ"/>
-                                                <constraint firstItem="3Nk-pT-Jy5" firstAttribute="top" secondItem="got-Hh-G24" secondAttribute="bottom" constant="8" id="Qdd-Nw-cVO"/>
-                                                <constraint firstItem="loA-My-INh" firstAttribute="leading" secondItem="UzF-la-Ggm" secondAttribute="leading" constant="8" id="Rzn-7G-1C5"/>
-                                                <constraint firstAttribute="bottom" secondItem="loA-My-INh" secondAttribute="bottom" constant="8" id="V3Q-6o-ZHJ"/>
-                                                <constraint firstAttribute="height" constant="134" id="aAe-8z-VdL"/>
-                                                <constraint firstAttribute="trailing" secondItem="got-Hh-G24" secondAttribute="trailing" constant="8" id="kvC-G3-X2W"/>
+                                                <constraint firstAttribute="bottom" secondItem="loA-My-INh" secondAttribute="bottom" constant="8" id="2LG-PP-IFo"/>
+                                                <constraint firstAttribute="bottom" secondItem="Fgu-XO-BSl" secondAttribute="bottom" constant="8" id="6Nn-Qm-JDo"/>
+                                                <constraint firstItem="got-Hh-G24" firstAttribute="top" secondItem="3Nk-pT-Jy5" secondAttribute="bottom" constant="8" id="Iyf-ay-IZG"/>
+                                                <constraint firstItem="loA-My-INh" firstAttribute="leading" secondItem="UzF-la-Ggm" secondAttribute="leading" constant="8" id="OS0-cc-SOy"/>
+                                                <constraint firstItem="3Nk-pT-Jy5" firstAttribute="leading" secondItem="loA-My-INh" secondAttribute="trailing" constant="8" id="StR-vG-jQW"/>
+                                                <constraint firstAttribute="height" constant="134" id="Uzn-wc-bxR"/>
+                                                <constraint firstItem="got-Hh-G24" firstAttribute="leading" secondItem="loA-My-INh" secondAttribute="trailing" constant="8" id="VMX-Aa-8KX"/>
+                                                <constraint firstAttribute="trailing" secondItem="got-Hh-G24" secondAttribute="trailing" constant="8" id="XIA-ea-QG7"/>
+                                                <constraint firstItem="Fgu-XO-BSl" firstAttribute="leading" secondItem="loA-My-INh" secondAttribute="trailing" constant="8" id="btX-rT-8QJ"/>
+                                                <constraint firstItem="Fgu-XO-BSl" firstAttribute="top" secondItem="got-Hh-G24" secondAttribute="bottom" constant="8" id="cxh-NQ-93a"/>
+                                                <constraint firstItem="loA-My-INh" firstAttribute="top" secondItem="UzF-la-Ggm" secondAttribute="top" constant="8" id="d2e-QC-fED"/>
+                                                <constraint firstItem="3Nk-pT-Jy5" firstAttribute="leading" secondItem="loA-My-INh" secondAttribute="trailing" constant="8" id="gE0-cZ-sdG"/>
+                                                <constraint firstAttribute="trailing" secondItem="Fgu-XO-BSl" secondAttribute="trailing" constant="8" id="n0e-ah-OLB"/>
                                                 <constraint firstAttribute="height" constant="150" id="oLY-aT-UVP"/>
-                                                <constraint firstAttribute="trailing" secondItem="Fgu-XO-BSl" secondAttribute="trailing" constant="8" id="yWU-i5-VJE"/>
-                                                <constraint firstItem="Fgu-XO-BSl" firstAttribute="top" secondItem="3Nk-pT-Jy5" secondAttribute="bottom" constant="8" id="zB5-dm-Pdx"/>
+                                                <constraint firstAttribute="trailing" secondItem="3Nk-pT-Jy5" secondAttribute="trailing" constant="8" id="qcj-JR-IsE"/>
+                                                <constraint firstAttribute="trailing" secondItem="3Nk-pT-Jy5" secondAttribute="trailing" constant="8" id="qdk-sO-w10"/>
+                                                <constraint firstItem="3Nk-pT-Jy5" firstAttribute="top" secondItem="UzF-la-Ggm" secondAttribute="top" constant="8" id="tFI-1n-Wmi"/>
+                                                <constraint firstItem="3Nk-pT-Jy5" firstAttribute="top" secondItem="UzF-la-Ggm" secondAttribute="top" constant="8" id="z0a-7X-fjH"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
                                                     <exclude reference="oLY-aT-UVP"/>
+                                                    <exclude reference="StR-vG-jQW"/>
+                                                    <exclude reference="qcj-JR-IsE"/>
+                                                    <exclude reference="z0a-7X-fjH"/>
                                                 </mask>
                                             </variation>
                                         </view>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="UzF-la-Ggm" firstAttribute="trailing" secondItem="rIJ-7E-rtb" secondAttribute="trailingMargin" id="Pu3-J9-mtf"/>
-                                        <constraint firstItem="UzF-la-Ggm" firstAttribute="bottom" secondItem="rIJ-7E-rtb" secondAttribute="bottomMargin" id="Usl-Zk-ajC"/>
-                                        <constraint firstItem="UzF-la-Ggm" firstAttribute="leading" secondItem="rIJ-7E-rtb" secondAttribute="leadingMargin" id="YUu-F0-VTA"/>
-                                        <constraint firstItem="UzF-la-Ggm" firstAttribute="top" secondItem="rIJ-7E-rtb" secondAttribute="topMargin" id="bbE-HS-TEO"/>
+                                        <constraint firstItem="UzF-la-Ggm" firstAttribute="trailing" secondItem="rIJ-7E-rtb" secondAttribute="trailingMargin" id="7ay-6h-He5"/>
+                                        <constraint firstItem="UzF-la-Ggm" firstAttribute="leading" secondItem="rIJ-7E-rtb" secondAttribute="leadingMargin" id="CAn-u2-TRW"/>
+                                        <constraint firstItem="UzF-la-Ggm" firstAttribute="bottom" secondItem="rIJ-7E-rtb" secondAttribute="bottomMargin" id="E7W-XQ-jil"/>
+                                        <constraint firstItem="UzF-la-Ggm" firstAttribute="top" secondItem="rIJ-7E-rtb" secondAttribute="topMargin" id="OPo-Pp-nvO"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

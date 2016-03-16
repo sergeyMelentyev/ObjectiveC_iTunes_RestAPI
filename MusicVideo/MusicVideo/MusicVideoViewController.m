@@ -45,8 +45,11 @@
             NSMutableArray *arrOfVideosForTableView = [[NSMutableArray alloc] init];
             NSDictionary *feed = [dataDict objectForKey:@"feed"];
             NSArray *entry = [feed objectForKey:@"entry"];
+            NSInteger rank = 1;
             for (NSDictionary *d in entry) {
                 MusicVideo *vid = [[MusicVideo alloc] init];
+                
+                vid.vRank = [NSString stringWithFormat:@"%d", rank];
                 
                 NSDictionary *videoName = [d objectForKey:@"im:name"];
                 if (videoName) {
@@ -143,6 +146,7 @@
                 }
                 
                 [arrOfVideosForTableView addObject:vid];
+                rank++;
             }
             self.videoList = arrOfVideosForTableView;
             [self updateTableData];

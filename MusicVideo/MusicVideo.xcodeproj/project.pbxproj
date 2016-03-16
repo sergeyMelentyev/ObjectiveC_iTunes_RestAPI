@@ -17,7 +17,7 @@
 		800FC6711C96B73F00621C6E /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 800FC6701C96B73F00621C6E /* APIManager.m */; };
 		802F2A591C97054D0012EF0A /* MusicVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 802F2A581C97054D0012EF0A /* MusicVideo.m */; };
 		802F2A5D1C9822C60012EF0A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 802F2A5C1C9822C60012EF0A /* Reachability.m */; };
-		804A8CE91C9998AE0063CCD0 /* MusciVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 804A8CE81C9998AE0063CCD0 /* MusciVideoViewController.m */; };
+		804A8CE91C9998AE0063CCD0 /* MusicVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 804A8CE81C9998AE0063CCD0 /* MusicVideoViewController.m */; };
 		804A8CEC1C999B620063CCD0 /* MusicVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 804A8CEB1C999B620063CCD0 /* MusicVideoCell.m */; };
 /* End PBXBuildFile section */
 
@@ -60,7 +60,7 @@
 		802F2A5B1C9822C60012EF0A /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		802F2A5C1C9822C60012EF0A /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		804A8CE71C9998AE0063CCD0 /* MusicVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicVideoViewController.h; sourceTree = "<group>"; };
-		804A8CE81C9998AE0063CCD0 /* MusciVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusciVideoViewController.m; sourceTree = "<group>"; };
+		804A8CE81C9998AE0063CCD0 /* MusicVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicVideoViewController.m; sourceTree = "<group>"; };
 		804A8CEA1C999B620063CCD0 /* MusicVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicVideoCell.h; sourceTree = "<group>"; };
 		804A8CEB1C999B620063CCD0 /* MusicVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicVideoCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -178,7 +178,7 @@
 				800FC63B1C96B19800621C6E /* AppDelegate.h */,
 				800FC63C1C96B19800621C6E /* AppDelegate.m */,
 				804A8CE71C9998AE0063CCD0 /* MusicVideoViewController.h */,
-				804A8CE81C9998AE0063CCD0 /* MusciVideoViewController.m */,
+				804A8CE81C9998AE0063CCD0 /* MusicVideoViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -329,7 +329,7 @@
 				800FC63D1C96B19800621C6E /* AppDelegate.m in Sources */,
 				802F2A5D1C9822C60012EF0A /* Reachability.m in Sources */,
 				800FC63A1C96B19800621C6E /* main.m in Sources */,
-				804A8CE91C9998AE0063CCD0 /* MusciVideoViewController.m in Sources */,
+				804A8CE91C9998AE0063CCD0 /* MusicVideoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

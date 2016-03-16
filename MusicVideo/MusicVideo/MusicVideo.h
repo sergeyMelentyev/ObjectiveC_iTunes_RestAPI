@@ -11,6 +11,7 @@
 @interface MusicVideo : NSObject
 
 @property (nonatomic, strong) NSString *vName;
+@property (nonatomic, strong) NSString *vRank;
 @property (nonatomic, strong) NSString *vRights;
 @property (nonatomic, strong) NSString *vPrice;
 @property (nonatomic, strong) NSString *vArtist;
