@@ -269,10 +269,10 @@
             </objects>
             <point key="canvasLocation" x="2429" y="390"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Music Video Settings Controller-->
         <scene sceneID="Jfe-TC-xgq">
             <objects>
-                <tableViewController id="fdt-zA-Okg" sceneMemberID="viewController">
+                <tableViewController id="fdt-zA-Okg" customClass="MusicVideoSettingsController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="84" sectionHeaderHeight="28" sectionFooterHeight="28" id="kmc-D6-1Pe">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -426,10 +426,20 @@
                             <outlet property="delegate" destination="fdt-zA-Okg" id="xBT-0V-JEL"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="aboutDisplay" destination="M3p-g9-fi4" id="pcD-f1-M9I"/>
+                        <outlet property="apiCount" destination="AL6-8J-lDt" id="YcS-1q-MbE"/>
+                        <outlet property="bestImageDisplay" destination="Wh0-l6-jJV" id="wm8-b3-DSe"/>
+                        <outlet property="feedBackDisplay" destination="ULh-0E-fQW" id="CtN-HV-cDf"/>
+                        <outlet property="hdImage" destination="rp8-3R-8he" id="AHG-3e-MeN"/>
+                        <outlet property="securityDisplay" destination="usc-hb-OBp" id="JIa-Hk-uOf"/>
+                        <outlet property="sliderCount" destination="W5K-tc-Hbf" id="QL9-fT-dpc"/>
+                        <outlet property="touchID" destination="3cz-cH-FKV" id="I34-qX-TVC"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mah-AS-JCe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1741" y="1180"/>
+            <point key="canvasLocation" x="1741" y="1095"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PBw-Fe-bw0">
