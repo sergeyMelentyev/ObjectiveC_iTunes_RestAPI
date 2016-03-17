@@ -337,8 +337,11 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3cz-cH-FKV">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3cz-cH-FKV">
                                                     <rect key="frame" x="543" y="26" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="touchIdSecurity:" destination="fdt-zA-Okg" eventType="valueChanged" id="Yp8-sY-Lmf"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -407,8 +410,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="83.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="W5K-tc-Hbf">
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="10" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="W5K-tc-Hbf">
                                                     <rect key="frame" x="50" y="27" width="500" height="31"/>
+                                                    <connections>
+                                                        <action selector="valueChanged:" destination="fdt-zA-Okg" eventType="valueChanged" id="I5R-h5-Br6"/>
+                                                    </connections>
                                                 </slider>
                                             </subviews>
                                             <constraints>
