@@ -19,6 +19,7 @@
 		802F2A5D1C9822C60012EF0A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 802F2A5C1C9822C60012EF0A /* Reachability.m */; };
 		804A8CE91C9998AE0063CCD0 /* MusicVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 804A8CE81C9998AE0063CCD0 /* MusicVideoViewController.m */; };
 		804A8CEC1C999B620063CCD0 /* MusicVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 804A8CEB1C999B620063CCD0 /* MusicVideoCell.m */; };
+		80893F1A1C9AB2DA00C5056D /* MusicVideoDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80893F191C9AB2DA00C5056D /* MusicVideoDetailsController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,8 @@
 		804A8CE81C9998AE0063CCD0 /* MusicVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicVideoViewController.m; sourceTree = "<group>"; };
 		804A8CEA1C999B620063CCD0 /* MusicVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicVideoCell.h; sourceTree = "<group>"; };
 		804A8CEB1C999B620063CCD0 /* MusicVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicVideoCell.m; sourceTree = "<group>"; };
+		80893F181C9AB2DA00C5056D /* MusicVideoDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicVideoDetailsController.h; sourceTree = "<group>"; };
+		80893F191C9AB2DA00C5056D /* MusicVideoDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicVideoDetailsController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +182,8 @@
 				800FC63C1C96B19800621C6E /* AppDelegate.m */,
 				804A8CE71C9998AE0063CCD0 /* MusicVideoViewController.h */,
 				804A8CE81C9998AE0063CCD0 /* MusicVideoViewController.m */,
+				80893F181C9AB2DA00C5056D /* MusicVideoDetailsController.h */,
+				80893F191C9AB2DA00C5056D /* MusicVideoDetailsController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -325,6 +330,7 @@
 			files = (
 				800FC6711C96B73F00621C6E /* APIManager.m in Sources */,
 				802F2A591C97054D0012EF0A /* MusicVideo.m in Sources */,
+				80893F1A1C9AB2DA00C5056D /* MusicVideoDetailsController.m in Sources */,
 				804A8CEC1C999B620063CCD0 /* MusicVideoCell.m in Sources */,
 				800FC63D1C96B19800621C6E /* AppDelegate.m in Sources */,
 				802F2A5D1C9822C60012EF0A /* Reachability.m in Sources */,
@@ -473,6 +479,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pro.NSHipster.MusicVideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -485,6 +492,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pro.NSHipster.MusicVideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

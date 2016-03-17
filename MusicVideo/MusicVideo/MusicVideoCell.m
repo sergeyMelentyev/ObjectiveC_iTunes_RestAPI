@@ -35,10 +35,10 @@
     // self.videoImagePoster.image = [UIImage imageNamed:@"noImage"];
     if (video.vImageData != nil) {
         self.videoImagePoster.image = [UIImage imageWithData:video.vImageData];
-        NSLog(@"IMAGE DATA != NIL");
+        NSLog(@"GETTING IMAGE FROM ARRAY");
     } else {
         [self getVideoImageFromUrl:(video) imageView:(self.videoImagePoster)];
-        NSLog(@"IMAGE DATA = NIL ->");
+        NSLog(@"GETTING IMAGE FROM BACKGROUND THREAD");
     }
 }
 
@@ -48,27 +48,12 @@
         NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString: video.vImageUrl]];
         if (data != nil) {
             video.vImageData = data;
-            NSLog(@"-> GLOBAL QUEUE DONE");
         }
-    
         dispatch_async(dispatch_get_main_queue(), ^{
             imageView.image = [UIImage imageWithData:video.vImageData];
-            NSLog(@" MAIN QUEUE DONE");
         });
     });
 }
 
-
 @end
-
-
-
-
-
-
-
-
-
-
-
 

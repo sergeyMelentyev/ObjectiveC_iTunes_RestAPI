@@ -215,8 +215,6 @@
     return self.videoList.count;
 }
 
-
-
 - (void) dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"ReachStatusChanged" object:nil];
 }
