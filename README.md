@@ -1,4 +1,4 @@
 Пользователь выбирает желаемое количество видеороликов, входящих в ТОП на iTunes и просматривает. 
-[Objective]-C, Grand Central Dispatch, iTunes Rest API, NSGSONSerialization, Reachability.framework
+[Objective]-C, Grand Central Dispatch, NSUserDefaults, iTunes Rest API, NSGSONSerialization, Reachability.framework
 
 Мобильное приложение проверяет доступные варианты связи (Wifi, Cell, NoConnection) и в соответствии с этим делает запрос на сервер iTunes (к примеру с Wifi можно загрузить изображения большего размера). Ответ приходит в формате JSON, далее NSGSONSerialization переходит на BackThread c наивысшим приоритетом и конвертирует данные в NSDictionary. По окончанию процесса создается нужное количество объектов по заданному образу класса. Полученный массив объектов используется для создания TableView. Каждая ячейка кликабельна и переносит пользователя в новое представление с подробным описанием.
