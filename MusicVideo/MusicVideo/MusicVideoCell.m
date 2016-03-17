@@ -17,17 +17,58 @@
 @end
 
 @implementation MusicVideoCell
--(void) awakeFromNib {
+
+// STYLES FOR REUSABLE CELL
+- (void) awakeFromNib {
     self.videoCellConteiner.layer.cornerRadius = 5.0;
     self.layer.shadowColor = [UIColor colorWithRed:157.0/255.0 green:157.0/255.0 blue:157.0/255.0 alpha:0.8].CGColor;
     self.layer.shadowOpacity = 0.8;
     self.layer.shadowRadius = 3.0;
     self.layer.shadowOffset = CGSizeMake(0.0, 0.0);
 }
--(void) updateUI:(nonnull MusicVideo*)video {
+
+// UPGRADE CONTENT OF EACH CELL
+- (void) updateUI:(nonnull MusicVideo*)video {
     self.videoRankLable.text = [NSString stringWithFormat:@"#%@ on iTunes today", video.vRank];
     self.videoArtistLable.text = video.vArtist;
     self.videoNameLable.text = video.vName;
-    self.videoImagePoster.image = [UIImage imageNamed:@"noImage"];
+    // self.videoImagePoster.image = [UIImage imageNamed:@"noImage"];
+    if (video.vImageData != nil) {
+        self.videoImagePoster.image = [UIImage imageWithData:video.vImageData];
+        NSLog(@"IMAGE DATA != NIL");
+    } else {
+        [self getVideoImageFromUrl:(video) imageView:(self.videoImagePoster)];
+        NSLog(@"IMAGE DATA = NIL ->");
+    }
 }
+
+// CONVERT THE IMAGE FROM URL TO UIIMAGE
+- (void) getVideoImageFromUrl:(MusicVideo*)video imageView:(UIImageView*)imageView {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString: video.vImageUrl]];
+        if (data != nil) {
+            video.vImageData = data;
+            NSLog(@"-> GLOBAL QUEUE DONE");
+        }
+    
+        dispatch_async(dispatch_get_main_queue(), ^{
+            imageView.image = [UIImage imageWithData:video.vImageData];
+            NSLog(@" MAIN QUEUE DONE");
+        });
+    });
+}
+
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+

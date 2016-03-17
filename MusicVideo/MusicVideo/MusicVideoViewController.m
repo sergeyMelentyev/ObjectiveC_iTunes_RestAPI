@@ -123,7 +123,7 @@
                 if (videoImageArr) {
                     NSDictionary *videoImageDict = videoImageArr[2];
                     if (videoImageDict) {
-                        NSString *videoImageSize = [[videoImageDict objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"100x100" withString:@"100x100"];
+                        NSString *videoImageSize = [[videoImageDict objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"100x100" withString:@"500x500"];
                         if (videoImageSize) {
                             vid.vImageUrl = videoImageSize;
                         }
