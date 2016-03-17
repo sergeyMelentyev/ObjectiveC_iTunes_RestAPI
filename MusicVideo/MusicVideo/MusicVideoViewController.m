@@ -10,6 +10,7 @@
 #import "APIManager.h"
 #import "MusicVideo.h"
 #import "MusicVideoCell.h"
+#import "MusicVideoDetailsController.h"
 
 @interface MusicVideoViewController ()
 @property (nonatomic, strong) NSArray *videoList;
@@ -49,7 +50,7 @@
             for (NSDictionary *d in entry) {
                 MusicVideo *vid = [[MusicVideo alloc] init];
                 
-                vid.vRank = [NSString stringWithFormat:@"%d", rank];
+                vid.vRank = [NSString stringWithFormat:@"%ld", (long)rank];
                 
                 NSDictionary *videoName = [d objectForKey:@"im:name"];
                 if (videoName) {
@@ -123,7 +124,7 @@
                 if (videoImageArr) {
                     NSDictionary *videoImageDict = videoImageArr[2];
                     if (videoImageDict) {
-                        NSString *videoImageSize = [[videoImageDict objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"100x100" withString:@"500x500"];
+                        NSString *videoImageSize = [[videoImageDict objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"100x100" withString:@"800x800"];
                         if (videoImageSize) {
                             vid.vImageUrl = videoImageSize;
                         }
@@ -192,27 +193,34 @@
     }
 }
 
--(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MusicVideoCell *cell = (MusicVideoCell*)[tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
         cell = [[MusicVideoCell alloc] init];
     }
     return cell;
 }
--(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     MusicVideo *video = [self.videoList objectAtIndex:indexPath.row];
     MusicVideoCell *vidCell = (MusicVideoCell*)cell;
     [vidCell updateUI:video];
 }
--(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // MusicVideo *video = [self.videoList objectAtIndex:indexPath.row];
-    // [self performSegueWithIdentifier:@"videoViewController" sender:video];
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+     MusicVideo *video = [self.videoList objectAtIndex:indexPath.row];
+     [self performSegueWithIdentifier:@"musicDetail" sender:video];
 }
--(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
--(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.videoList.count;
+}
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"musicDetail"]) {
+        MusicVideoDetailsController *mvdc = (MusicVideoDetailsController*)segue.destinationViewController;
+        MusicVideo *video = (MusicVideo*)sender;
+        mvdc.videoContent = video;
+    }
 }
 
 - (void) dealloc {

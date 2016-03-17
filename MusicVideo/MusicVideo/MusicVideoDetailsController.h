@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MusicVideo.h"
 
 @interface MusicVideoDetailsController : UIViewController
-
+@property (nonatomic, strong) MusicVideo *videoContent;
 @end

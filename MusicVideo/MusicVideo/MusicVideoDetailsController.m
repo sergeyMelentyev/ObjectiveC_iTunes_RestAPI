@@ -18,6 +18,18 @@
 
 @implementation MusicVideoDetailsController
 
-
+-(void) viewDidLoad {
+    [super viewDidLoad];
+    self.title = self.videoContent.vArtist;
+    self.videoName.text = self.videoContent.vName;
+    self.videoGenre.text = self.videoContent.vGenre;
+    self.videoPrice.text = self.videoContent.vPrice;
+    self.videoRights.text = self.videoContent.vRights;
+    if (self.videoContent.vImageData != 0) {
+        self.imageView.image = [UIImage imageWithData:self.videoContent.vImageData];
+    } else {
+        self.imageView.image = [UIImage imageNamed:@"noImage"];
+    }
+}
 
 @end
