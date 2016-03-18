@@ -18,9 +18,23 @@
 @end
 
 @implementation MusicVideoViewController
-- (void)viewDidLoad {
+
+// UPGRADE MAIN TITLE WITH CURRENT API COUNT
+- (void) upgradeTitleCurrentApi {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"APICNT"] != nil) {
+        NSNumber *theValue = [[NSUserDefaults standardUserDefaults] objectForKey:@"APICNT"];
+        self.currentApiCount = theValue;
+        self.title = [NSString stringWithFormat:@"The iTunes Top %d Music Videos", [self.currentApiCount intValue]];
+    } else {
+        self.currentApiCount = [NSNumber numberWithInt:10];
+        self.title = [NSString stringWithFormat:@"The iTunes Top %d Music Videos", [self.currentApiCount intValue]];
+    }
+}
+
+- (void) viewDidLoad {
     [super viewDidLoad];
     self.videoList = [[NSArray alloc] init];
+    [self upgradeTitleCurrentApi];
     
     // CREATE A CURRENT DATE FORMATE
     NSDate *currentDate = [[NSDate alloc] init];
@@ -43,7 +57,8 @@
             NSNumber *theValue = [[NSUserDefaults standardUserDefaults] objectForKey:@"APICNT"];
             self.currentApiCount = theValue;
         }
-        NSLog(@"%d", [self.currentApiCount intValue]);
+        [self runAPI];
+        [self upgradeTitleCurrentApi];
         [self.refreshControl endRefreshing];
     });
 }
@@ -64,6 +79,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityStatusChanged) name:@"ReachStatusChanged" object:nil];
     [self runAPI];
+    [self upgradeTitleCurrentApi];
 }
 
 // PARSER FROM ITUNES API JSON TO NSARRAY
@@ -178,9 +194,8 @@
             }
             self.videoList = arrOfVideosForTableView;
             [self updateTableData];
-            NSLog(@"GOOD %lu", (unsigned long)self.videoList.count);
         } else if (errMessage) {
-            NSLog(@"ERROR %lu", (unsigned long)self.videoList.count);
+            // ERROR MESSAGE
         }
     }];
 }
