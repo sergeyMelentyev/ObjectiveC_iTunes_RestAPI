@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *videoNameLable;
 @property (weak, nonatomic) IBOutlet UIImageView *videoImagePoster;
 @property (weak, nonatomic) IBOutlet UIView *videoCellConteiner;
+@property (weak, nonatomic) IBOutlet UILabel *videoGanre;
 @end
 
 @implementation MusicVideoCell
@@ -33,7 +34,7 @@
     self.videoRankLable.text = [NSString stringWithFormat:@"%@", video.vRank];
     self.videoArtistLable.text = video.vArtist;
     self.videoNameLable.text = video.vName;
-    // self.videoImagePoster.image = [UIImage imageNamed:@"noImage"];
+    self.videoGanre.text = video.vGenre;
     if (video.vImageData != nil) {
         self.videoImagePoster.image = [UIImage imageWithData:video.vImageData];
         NSLog(@"GETTING IMAGE FROM ARRAY");
