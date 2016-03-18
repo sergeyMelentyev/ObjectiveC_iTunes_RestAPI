@@ -8,9 +8,13 @@
 
 #import "APIManager.h"
 
+@interface APIManager()
+@property (nonatomic, strong) NSNumber *currentApiCount;
+@end
+
 @implementation APIManager
 
-+(id) instance {
++ (id) instance {
     static APIManager *sharedInstance = nil;
     @synchronized(self) {
         if (sharedInstance == nil)
@@ -19,11 +23,19 @@
     }
 }
 
--(void) loadData:(onComplete)completionHandler {
+- (void) loadData:(onComplete)completionHandler {
     // CONFIGURE NSURLSESSION WITHOUT CASHE
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
-    NSString *iTunesAddress = @"https://itunes.apple.com/us/rss/topmusicvideos/limit=20/json";
+    [self refrefCurrentApiCount];
+    
+    NSString *iTunesAddress = [[NSString alloc] init];
+    if (self.currentApiCount != 0) {
+        iTunesAddress = [NSString stringWithFormat:@"https://itunes.apple.com/us/rss/topmusicvideos/limit=%d/json", [self.currentApiCount intValue]];
+    } else {
+        iTunesAddress = @"https://itunes.apple.com/us/rss/topmusicvideos/limit=10/json";
+    }
+    
     NSURL *url = [NSURL URLWithString: iTunesAddress];
     [[session dataTaskWithURL:url completionHandler:^(NSData* data, NSURLResponse* response, NSError* error) {
         if (data != nil) {
@@ -46,6 +58,14 @@
         
     }] resume];
 }
+
+- (void) refrefCurrentApiCount {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"APICNT"] != nil) {
+        NSNumber *theValue = [[NSUserDefaults standardUserDefaults] objectForKey:@"APICNT"];
+        self.currentApiCount = theValue;
+    }
+}
+
 @end
 
 

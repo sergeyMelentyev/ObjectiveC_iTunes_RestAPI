@@ -11,6 +11,7 @@ typedef void (^onComplete)(NSDictionary* dataDict, NSString* errMessage);
 
 @interface APIManager : NSObject
 
+@property (nonatomic, strong) NSNumber *currentApiCountManager;
 +(id) instance;
 -(void) loadData:(onComplete)completionHandler;
 
