@@ -47,7 +47,33 @@
 }
 
 - (IBAction)shareButton:(UIBarButtonItem *)sender {
+    [self shareMedia];
+}
 
+- (void) shareMedia {
+    // CREATE A CONTENT FOR SHARE
+    NSString *firstPart = @"Have you had the opportunity to see this video?";
+    NSString *secondPart = [NSString stringWithFormat:@"%@ by %@.", self.videoContent.vName, self.videoContent.vArtist];
+    NSString *thirdPart = @"Watch it and tell me what you think.";
+    NSURL *fourthPart = [NSURL URLWithString: [NSString stringWithFormat:@"%@", self.videoContent.vLinkToItunes]];
+    NSString *fifthPart = @"This message created with my Music Video App.";
+    
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[firstPart, secondPart, thirdPart, fourthPart, fifthPart] applicationActivities:nil];
+    
+    NSArray *excludeActivities = @[UIActivityTypeAirDrop,
+                                   UIActivityTypePrint,
+                                   UIActivityTypeAssignToContact,
+                                   UIActivityTypeSaveToCameraRoll,
+                                   UIActivityTypeAddToReadingList,
+                                   UIActivityTypePostToFlickr,
+                                   UIActivityTypePostToVimeo,
+                                   UIActivityTypePostToTencentWeibo,
+                                   UIActivityTypePostToTwitter,
+                                   UIActivityTypePostToWeibo];
+    activityViewController.excludedActivityTypes = excludeActivities;
+    activityViewController.popoverPresentationController.sourceView = self.view;
+    [self presentViewController:activityViewController animated:YES completion:nil];
+    
 }
 
 @end

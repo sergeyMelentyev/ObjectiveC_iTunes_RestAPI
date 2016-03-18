@@ -31,9 +31,10 @@
     
     NSString *iTunesAddress = [[NSString alloc] init];
     if (self.currentApiCount != 0) {
-        iTunesAddress = [NSString stringWithFormat:@"https://itunes.apple.com/us/rss/topmusicvideos/limit=%d/json", [self.currentApiCount intValue]];
+        iTunesAddress = [NSString stringWithFormat:@"https://itunes.apple.com/ru/rss/topmusicvideos/limit=%d/json", [self.currentApiCount intValue]];
     } else {
-        iTunesAddress = @"https://itunes.apple.com/us/rss/topmusicvideos/limit=10/json";
+        iTunesAddress = @"https://itunes.apple.com/ru/rss/topmusicvideos/limit=10/json";
+        // https://rss.itunes.apple.com
     }
     
     NSURL *url = [NSURL URLWithString: iTunesAddress];

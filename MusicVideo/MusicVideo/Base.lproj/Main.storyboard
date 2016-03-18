@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -409,21 +410,33 @@
                                         <rect key="frame" x="0.0" y="400" width="600" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ot8-SU-lhS" id="Ve0-Aq-cLX">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="83.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="84"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AL6-8J-lDt">
-                                                    <rect key="frame" x="8" y="31" width="584" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AL6-8J-lDt">
+                                                    <rect key="frame" x="535" y="31" width="57" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="57" id="WNI-XC-lxN"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of music videos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEy-l5-bQg">
+                                                    <rect key="frame" x="8" y="31" width="519" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="AL6-8J-lDt" firstAttribute="leading" secondItem="Ve0-Aq-cLX" secondAttribute="leadingMargin" id="89g-Xd-0Wg"/>
-                                                <constraint firstItem="AL6-8J-lDt" firstAttribute="trailing" secondItem="Ve0-Aq-cLX" secondAttribute="trailingMargin" id="8o6-Iq-Yvz"/>
-                                                <constraint firstItem="AL6-8J-lDt" firstAttribute="centerY" secondItem="Ve0-Aq-cLX" secondAttribute="centerY" id="CQT-J3-peA"/>
-                                                <constraint firstItem="AL6-8J-lDt" firstAttribute="top" secondItem="Ve0-Aq-cLX" secondAttribute="topMargin" constant="23" id="oVr-Oe-T3B"/>
+                                                <constraint firstItem="AL6-8J-lDt" firstAttribute="trailing" secondItem="Ve0-Aq-cLX" secondAttribute="trailingMargin" id="4BL-i8-oft"/>
+                                                <constraint firstItem="dEy-l5-bQg" firstAttribute="firstBaseline" secondItem="AL6-8J-lDt" secondAttribute="firstBaseline" id="XDg-tY-mJ4"/>
+                                                <constraint firstItem="AL6-8J-lDt" firstAttribute="leading" secondItem="dEy-l5-bQg" secondAttribute="trailing" constant="8" symbolic="YES" id="aPg-lp-OWc"/>
+                                                <constraint firstItem="dEy-l5-bQg" firstAttribute="top" secondItem="Ve0-Aq-cLX" secondAttribute="topMargin" constant="23" id="bhC-tl-3p5"/>
+                                                <constraint firstItem="AL6-8J-lDt" firstAttribute="centerY" secondItem="Ve0-Aq-cLX" secondAttribute="centerY" id="qlr-71-d4e"/>
+                                                <constraint firstItem="dEy-l5-bQg" firstAttribute="leading" secondItem="Ve0-Aq-cLX" secondAttribute="leadingMargin" id="sIm-j8-S9y"/>
+                                                <constraint firstItem="AL6-8J-lDt" firstAttribute="baseline" secondItem="dEy-l5-bQg" secondAttribute="baseline" id="tBg-93-Ey2"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -431,10 +444,10 @@
                                         <rect key="frame" x="0.0" y="484" width="600" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rc6-Gn-hyA" id="fGP-re-bKO">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="83.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="84"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="10" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="W5K-tc-Hbf">
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="10" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="W5K-tc-Hbf">
                                                     <rect key="frame" x="50" y="27" width="500" height="31"/>
                                                     <connections>
                                                         <action selector="valueChanged:" destination="fdt-zA-Okg" eventType="valueChanged" id="I5R-h5-Br6"/>
@@ -442,9 +455,9 @@
                                                 </slider>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="W5K-tc-Hbf" firstAttribute="centerX" secondItem="fGP-re-bKO" secondAttribute="centerX" id="6kO-ZG-gpt"/>
-                                                <constraint firstItem="W5K-tc-Hbf" firstAttribute="centerY" secondItem="fGP-re-bKO" secondAttribute="centerY" id="Fc1-cS-iUo"/>
-                                                <constraint firstItem="W5K-tc-Hbf" firstAttribute="leading" secondItem="fGP-re-bKO" secondAttribute="leadingMargin" constant="44" id="StC-hz-gfA"/>
+                                                <constraint firstItem="W5K-tc-Hbf" firstAttribute="centerX" secondItem="fGP-re-bKO" secondAttribute="centerX" id="GEt-i0-CwR"/>
+                                                <constraint firstItem="W5K-tc-Hbf" firstAttribute="centerY" secondItem="fGP-re-bKO" secondAttribute="centerY" id="ZMz-6t-cDW"/>
+                                                <constraint firstItem="W5K-tc-Hbf" firstAttribute="leading" secondItem="fGP-re-bKO" secondAttribute="leadingMargin" constant="44" id="ZqY-NH-glJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
