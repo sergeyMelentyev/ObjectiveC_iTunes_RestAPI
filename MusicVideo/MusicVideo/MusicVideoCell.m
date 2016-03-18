@@ -21,6 +21,7 @@
 // STYLES FOR REUSABLE CELL
 - (void) awakeFromNib {
     self.videoCellConteiner.layer.cornerRadius = 5.0;
+    self.videoImagePoster.layer.cornerRadius = 5.0;
     self.layer.shadowColor = [UIColor colorWithRed:157.0/255.0 green:157.0/255.0 blue:157.0/255.0 alpha:0.8].CGColor;
     self.layer.shadowOpacity = 0.8;
     self.layer.shadowRadius = 3.0;
@@ -29,7 +30,7 @@
 
 // UPGRADE CONTENT OF EACH CELL
 - (void) updateUI:(nonnull MusicVideo*)video {
-    self.videoRankLable.text = [NSString stringWithFormat:@"#%@ on iTunes today", video.vRank];
+    self.videoRankLable.text = [NSString stringWithFormat:@"%@", video.vRank];
     self.videoArtistLable.text = video.vArtist;
     self.videoNameLable.text = video.vName;
     // self.videoImagePoster.image = [UIImage imageNamed:@"noImage"];

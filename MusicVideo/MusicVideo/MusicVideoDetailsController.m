@@ -7,6 +7,8 @@
 //
 
 #import "MusicVideoDetailsController.h"
+#import <AVFoundation/AVFoundation.h>
+#import <AVKit/AVKit.h>
 
 @interface MusicVideoDetailsController()
 @property (weak, nonatomic) IBOutlet UILabel *videoName;
@@ -14,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *videoGenre;
 @property (weak, nonatomic) IBOutlet UILabel *videoPrice;
 @property (weak, nonatomic) IBOutlet UILabel *videoRights;
+- (IBAction)playVideo:(UIBarButtonItem *)sender;
+- (IBAction)shareButton:(UIBarButtonItem *)sender;
 @end
 
 @implementation MusicVideoDetailsController
@@ -32,4 +36,27 @@
     }
 }
 
+- (IBAction)playVideo:(UIBarButtonItem *)sender {
+    NSURL *url = [NSURL URLWithString:self.videoContent.vVideoUrl];
+    AVPlayer *player = [AVPlayer playerWithURL:url];
+    AVPlayerViewController *playerViewController = [[AVPlayerViewController alloc] init];
+    playerViewController.player = player;
+    [self presentViewController:playerViewController animated:YES completion:^{
+        [[playerViewController player] play];
+    }];
+}
+
+- (IBAction)shareButton:(UIBarButtonItem *)sender {
+
+}
+
 @end
+
+
+
+
+
+
+
+
+
