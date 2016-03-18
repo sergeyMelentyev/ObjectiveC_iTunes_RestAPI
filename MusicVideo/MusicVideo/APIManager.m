@@ -23,7 +23,6 @@
     // CONFIGURE NSURLSESSION WITHOUT CASHE
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
-    
     NSString *iTunesAddress = @"https://itunes.apple.com/us/rss/topmusicvideos/limit=20/json";
     NSURL *url = [NSURL URLWithString: iTunesAddress];
     [[session dataTaskWithURL:url completionHandler:^(NSData* data, NSURLResponse* response, NSError* error) {

@@ -14,15 +14,42 @@
 
 @interface MusicVideoViewController ()
 @property (nonatomic, strong) NSArray *videoList;
+@property (nonatomic, strong) NSNumber *currentApiCount;
 @end
 
 @implementation MusicVideoViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.videoList = [[NSArray alloc] init];
+    
+    // CREATE A CURRENT DATE FORMATE
+    NSDate *currentDate = [[NSDate alloc] init];
+    NSTimeZone *timeZone = [NSTimeZone defaultTimeZone];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeZone:timeZone];
+    [dateFormatter setDateFormat:@"E, dd MMM yyyy HH:mm:ss"];
+    NSString *localDateString = [dateFormatter stringFromDate:currentDate];
+    
+    // REFRESH CONTROLLER
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:localDateString];
+    [refreshControl addTarget:self action:@selector(refreshTableView) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refreshControl;
 }
+- (void) refreshTableView {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.refreshControl beginRefreshing];
+        if ([[NSUserDefaults standardUserDefaults] objectForKey:@"APICNT"] != nil) {
+            NSNumber *theValue = [[NSUserDefaults standardUserDefaults] objectForKey:@"APICNT"];
+            self.currentApiCount = theValue;
+        }
+        NSLog(@"%d", [self.currentApiCount intValue]);
+        [self.refreshControl endRefreshing];
+    });
+}
+
 // CUSTOM FUNCTION FOR PUTTING TABLEVIEW BACK TO THE MAIN THREAD AND UPGRADE IT
--(void) updateTableData {
+- (void) updateTableData {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
     });

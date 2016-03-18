@@ -10,6 +10,8 @@
 typedef void (^onComplete)(NSDictionary* dataDict, NSString* errMessage);
 
 @interface APIManager : NSObject
+
 +(id) instance;
 -(void) loadData:(onComplete)completionHandler;
+
 @end
