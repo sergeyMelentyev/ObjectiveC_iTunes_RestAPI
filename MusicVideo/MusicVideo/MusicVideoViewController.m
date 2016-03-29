@@ -50,6 +50,7 @@
     [refreshControl addTarget:self action:@selector(refreshTableView) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refreshControl;
 }
+
 - (void) refreshTableView {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.refreshControl beginRefreshing];
